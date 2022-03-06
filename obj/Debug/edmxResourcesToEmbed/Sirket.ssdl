@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SirketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Elemanlar">
+    <Key>
+      <PropertyRef Name="ElemanNo" />
+    </Key>
+    <Property Name="ElemanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ElemanAdi" Type="varchar" MaxLength="50" />
+    <Property Name="ElemanPozisyon" Type="varchar" MaxLength="50" />
+    <Property Name="ElemanMaas" Type="money" />
+    <Property Name="ElemanStatu" Type="varchar" MaxLength="50" />
+    <Property Name="GorevNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Gorevler">
+    <Key>
+      <PropertyRef Name="GorevNo" />
+    </Key>
+    <Property Name="GorevNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GorevAdi" Type="varchar" MaxLength="50" />
+    <Property Name="GorevTanimi" Type="varchar" MaxLength="50" />
+    <Property Name="GorevFiyat" Type="money" />
+    <Property Name="GorevSuresi" Type="int" />
+    <Property Name="GorevDurumu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Elemanlar_Gorevler">
+    <End Role="Gorevler" Type="Self.Gorevler" Multiplicity="0..1" />
+    <End Role="Elemanlar" Type="Self.Elemanlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gorevler">
+        <PropertyRef Name="GorevNo" />
+      </Principal>
+      <Dependent Role="Elemanlar">
+        <PropertyRef Name="GorevNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ElemanArama" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AramaKelime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ElemanEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ElemanAdi" Type="varchar" Mode="In" />
+    <Parameter Name="ElemanPozisyon" Type="varchar" Mode="In" />
+    <Parameter Name="ElemanMaas" Type="money" Mode="In" />
+    <Parameter Name="ElemanStatu" Type="varchar" Mode="In" />
+    <Parameter Name="GorevNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ElemanListele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ElemanSil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ElemanNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ElemanYenile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ElemanNo" Type="int" Mode="In" />
+    <Parameter Name="ElemanAdi" Type="varchar" Mode="In" />
+    <Parameter Name="ElemanPozisyon" Type="varchar" Mode="In" />
+    <Parameter Name="ElemanMaas" Type="money" Mode="In" />
+    <Parameter Name="ElemanStatu" Type="varchar" Mode="In" />
+    <Parameter Name="GorevNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GorevArama" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AramaKelime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GorevEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GorevAdi" Type="varchar" Mode="In" />
+    <Parameter Name="GorevTanimi" Type="varchar" Mode="In" />
+    <Parameter Name="GorevFiyat" Type="money" Mode="In" />
+    <Parameter Name="GorevSuresi" Type="int" Mode="In" />
+    <Parameter Name="GorevDurumu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GorevElemanBirleştirme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GorevListele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GorevSil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GorevNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GorevYenile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GorevNo" Type="int" Mode="In" />
+    <Parameter Name="GorevAdi" Type="varchar" Mode="In" />
+    <Parameter Name="GorevTanim" Type="varchar" Mode="In" />
+    <Parameter Name="GorevFiyat" Type="money" Mode="In" />
+    <Parameter Name="GorevSuresi" Type="int" Mode="In" />
+    <Parameter Name="GorevDurumu" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SirketModelStoreContainer">
+    <EntitySet Name="Elemanlar" EntityType="Self.Elemanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gorevler" EntityType="Self.Gorevler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Elemanlar_Gorevler" Association="Self.FK_Elemanlar_Gorevler">
+      <End Role="Gorevler" EntitySet="Gorevler" />
+      <End Role="Elemanlar" EntitySet="Elemanlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

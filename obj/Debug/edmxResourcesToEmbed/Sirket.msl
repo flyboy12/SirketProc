@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SirketModelStoreContainer" CdmEntityContainer="SirketEntities">
+    <EntitySetMapping Name="Elemanlar">
+      <EntityTypeMapping TypeName="SirketModel.Elemanlar">
+        <MappingFragment StoreEntitySet="Elemanlar">
+          <ScalarProperty Name="ElemanNo" ColumnName="ElemanNo" />
+          <ScalarProperty Name="ElemanAdi" ColumnName="ElemanAdi" />
+          <ScalarProperty Name="ElemanPozisyon" ColumnName="ElemanPozisyon" />
+          <ScalarProperty Name="ElemanMaas" ColumnName="ElemanMaas" />
+          <ScalarProperty Name="ElemanStatu" ColumnName="ElemanStatu" />
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gorevler">
+      <EntityTypeMapping TypeName="SirketModel.Gorevler">
+        <MappingFragment StoreEntitySet="Gorevler">
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+          <ScalarProperty Name="GorevAdi" ColumnName="GorevAdi" />
+          <ScalarProperty Name="GorevTanimi" ColumnName="GorevTanimi" />
+          <ScalarProperty Name="GorevFiyat" ColumnName="GorevFiyat" />
+          <ScalarProperty Name="GorevSuresi" ColumnName="GorevSuresi" />
+          <ScalarProperty Name="GorevDurumu" ColumnName="GorevDurumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ElemanArama" FunctionName="SirketModel.Store.ElemanArama">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SirketModel.ElemanArama_Result">
+          <ScalarProperty Name="ElemanNo" ColumnName="ElemanNo" />
+          <ScalarProperty Name="ElemanAdi" ColumnName="ElemanAdi" />
+          <ScalarProperty Name="ElemanPozisyon" ColumnName="ElemanPozisyon" />
+          <ScalarProperty Name="ElemanMaas" ColumnName="ElemanMaas" />
+          <ScalarProperty Name="ElemanStatu" ColumnName="ElemanStatu" />
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ElemanEkle" FunctionName="SirketModel.Store.ElemanEkle" />
+    <FunctionImportMapping FunctionImportName="ElemanListele" FunctionName="SirketModel.Store.ElemanListele">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SirketModel.ElemanListele_Result">
+          <ScalarProperty Name="ElemanNo" ColumnName="ElemanNo" />
+          <ScalarProperty Name="ElemanAdi" ColumnName="ElemanAdi" />
+          <ScalarProperty Name="ElemanPozisyon" ColumnName="ElemanPozisyon" />
+          <ScalarProperty Name="ElemanMaas" ColumnName="ElemanMaas" />
+          <ScalarProperty Name="ElemanStatu" ColumnName="ElemanStatu" />
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ElemanSil" FunctionName="SirketModel.Store.ElemanSil" />
+    <FunctionImportMapping FunctionImportName="ElemanYenile" FunctionName="SirketModel.Store.ElemanYenile" />
+    <FunctionImportMapping FunctionImportName="GorevArama" FunctionName="SirketModel.Store.GorevArama">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SirketModel.GorevArama_Result">
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+          <ScalarProperty Name="GorevAdi" ColumnName="GorevAdi" />
+          <ScalarProperty Name="GorevTanimi" ColumnName="GorevTanimi" />
+          <ScalarProperty Name="GorevFiyat" ColumnName="GorevFiyat" />
+          <ScalarProperty Name="GorevSuresi" ColumnName="GorevSuresi" />
+          <ScalarProperty Name="GorevDurumu" ColumnName="GorevDurumu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GorevEkle" FunctionName="SirketModel.Store.GorevEkle" />
+    <FunctionImportMapping FunctionImportName="GorevElemanBirleştirme" FunctionName="SirketModel.Store.GorevElemanBirleştirme">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SirketModel.GorevElemanBirleştirme_Result">
+          <ScalarProperty Name="ElemanAdi" ColumnName="ElemanAdi" />
+          <ScalarProperty Name="ElemanPozisyon" ColumnName="ElemanPozisyon" />
+          <ScalarProperty Name="ElemanMaas" ColumnName="ElemanMaas" />
+          <ScalarProperty Name="GorevAdi" ColumnName="GorevAdi" />
+          <ScalarProperty Name="GorevSuresi" ColumnName="GorevSuresi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GorevListele" FunctionName="SirketModel.Store.GorevListele">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SirketModel.GorevListele_Result">
+          <ScalarProperty Name="GorevNo" ColumnName="GorevNo" />
+          <ScalarProperty Name="GorevAdi" ColumnName="GorevAdi" />
+          <ScalarProperty Name="GorevTanimi" ColumnName="GorevTanimi" />
+          <ScalarProperty Name="GorevFiyat" ColumnName="GorevFiyat" />
+          <ScalarProperty Name="GorevSuresi" ColumnName="GorevSuresi" />
+          <ScalarProperty Name="GorevDurumu" ColumnName="GorevDurumu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GorevSil" FunctionName="SirketModel.Store.GorevSil" />
+    <FunctionImportMapping FunctionImportName="GorevYenile" FunctionName="SirketModel.Store.GorevYenile" />
+  </EntityContainerMapping>
+</Mapping>
